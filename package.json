@@ -1,13 +1,15 @@
 {
-  "name": "boomer-pics",
+  "name": "boomer-central",
   "version": "1.0.0",
-  "description": "See pictures of Boomer like never before!",
+  "description": "News and pictures of everyone's favorite hound.",
   "main": "server.js",
   "scripts": {
     "test": "npm test"
   },
   "keywords": [
     "Boomer",
+    "central",
+    "news",
     "pics",
     "pictures"
   ],
