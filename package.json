@@ -1,0 +1,16 @@
+{
+  "name": "boomer-pics",
+  "version": "1.0.0",
+  "description": "See pictures of Boomer like never before!",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "Boomer",
+    "pics",
+    "pictures"
+  ],
+  "author": "Nicholas Skinsacos",
+  "license": "MIT"
+}
