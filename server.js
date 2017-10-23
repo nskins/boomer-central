@@ -1,18 +1,8 @@
-const fs = require('fs');
-const http = require('http');
+const express = require('express');
+const app = express();
 
-const port = process.argv[2];
-
-var server = http.createServer((req, res) => {
-  fs.readFile('index.html', (err, data) => {
-    if (err) {
-      res.writeHead(500);
-      res.end();
-    } else {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.end(data);
-    }
-  });
+app.get('/', function (req, res) {
+  res.sendFile('index.html', { root: __dirname });
 });
 
-server.listen(port);
+app.listen(3000);
