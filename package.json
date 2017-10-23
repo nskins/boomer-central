@@ -16,6 +16,7 @@
   "author": "Nicholas Skinsacos",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "pug": "^2.0.0-rc.4"
   }
 }
