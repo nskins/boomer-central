@@ -5,6 +5,12 @@ body {
   text-align: center;
 }
 
+/* Center the table. */
+body table {
+    margin-left:auto;
+    margin-right:auto;
+}
+
 h1 {
   color: #4f0000;
 }
