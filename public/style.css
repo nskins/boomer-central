@@ -11,6 +11,16 @@ body table {
     margin-right:auto;
 }
 
+footer hr {
+  background-color: black;
+  height: 3px;
+}
+
+footer p {
+  color: #f22;
+  font-weight: bold;
+}
+
 h1 {
   color: #4f0000;
 }
