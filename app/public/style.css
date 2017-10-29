@@ -11,11 +11,6 @@ body table {
     margin-right:auto;
 }
 
-footer hr {
-  background-color: black;
-  height: 3px;
-}
-
 footer p {
   color: #f22;
   font-weight: bold;
@@ -23,6 +18,15 @@ footer p {
 
 h1 {
   color: #4f0000;
+}
+
+header input {
+  float: right;
+}
+
+hr {
+  background-color: black;
+  height: 3px;
 }
 
 img {

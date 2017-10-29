@@ -4,9 +4,11 @@ html
     title Boomer Central
     link(rel="stylesheet", type="text/css", href="style.css")
   body
+    header
+      input(type="button" value="Login" onclick="location.href='/login';")
+      br
     block content
   - if (user && user.admin)
       footer
         hr
         p Logged in as admin.
-        hr
