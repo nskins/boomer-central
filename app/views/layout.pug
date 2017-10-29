@@ -5,10 +5,14 @@ html
     link(rel="stylesheet", type="text/css", href="style.css")
   body
     header
-      input(type="button" value="Login" onclick="location.href='/login';")
+      - if (user)
+        form(action="/logout", method="post")
+          input(type="submit" value="Logout")
+      - else
+        input(type="button" value="Login" onclick="location.href='/login';")
       br
     block content
-  - if (user && user.admin)
+    - if (user && user.admin)
       footer
         hr
         p Logged in as admin.

@@ -50,4 +50,9 @@ app.post('/login',
   })
 );
 
+app.post('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
+
 app.listen(3000);
