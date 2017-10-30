@@ -36,11 +36,11 @@ app.use(passport.session());
 require('./app/passport')();
 
 app.get('/', function (req, res) {
-  res.render('index', { user: req.user });
+  res.render('index', { title: 'Boomer Central', user: req.user });
 });
 
 app.get('/login', (req, res) => {
-  res.render('login');
+  res.render('login', { title: 'Login', user: req.user });
 });
 
 app.post('/login',

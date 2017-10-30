@@ -11,6 +11,7 @@ html
       - else
         input(type="button" value="Login" onclick="location.href='/login';")
       br
+      h1 #{title}
     block content
     - if (user && user.admin)
       footer
