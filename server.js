@@ -44,7 +44,7 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login',
-  passport.authenticate('local', {
+  passport.authenticate('login', {
     successRedirect: '/',
     failureRedirect: '/login'
   })
@@ -54,5 +54,16 @@ app.post('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });
+
+app.get('/signup', (req, res) => {
+  res.render('signup', { title: 'Create an Account', user: req.user });
+});
+
+app.post('/signup',
+  passport.authenticate('signup', {
+    successRedirect: '/',
+    failureRedirect: '/signup'
+  })
+);
 
 app.listen(3000);
