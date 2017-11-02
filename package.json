@@ -4,7 +4,7 @@
   "description": "News and pictures of everyone's favorite hound.",
   "main": "server.js",
   "scripts": {
-    "test": "npm test"
+    "test": "jest"
   },
   "keywords": [
     "Boomer",
