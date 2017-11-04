@@ -9,8 +9,8 @@ html
         form(action="/logout", method="post")
           input(type="submit" value="Logout")
       - else
-        input(type="button" value="Login" onclick="location.href='/login';")
-        input(type="button" value="Signup" onclick="location.href='/signup';")
+        input(class="login-btn" type="button" value="Login" onclick="location.href='/login';")
+        input(class="signup-btn" type="button" value="Signup" onclick="location.href='/signup';")
       br
       h1 #{title}
     block content

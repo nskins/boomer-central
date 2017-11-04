@@ -1,5 +1,8 @@
 const helper = require('./helper');
 
+const url = 'http://localhost:3000/signup';
+
 describe('/signup (Signup Page)', () => {
-  helper.testPageLoads('http://localhost:3000/signup');
+  helper.testPageLoads(url);
+  helper.testNavigateTo('.signup-btn', url);
 });
