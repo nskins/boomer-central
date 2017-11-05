@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const session = require('express-session');
+const User = require('./app/models/user.js');
 
 // Connect to MongoDB.
 const dbConfig = require('./app/db');
@@ -16,7 +17,8 @@ app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'pug');
 
 // Static resource files.
-app.use(express.static(path.join(__dirname, 'app/public')));
+app.use('/css', express.static(path.join(__dirname, 'app/public/css')));
+app.use('/img', express.static(path.join(__dirname, 'app/public/img')));
 
 // Session handling.
 app.use(session({
@@ -65,5 +67,16 @@ app.post('/signup',
     failureRedirect: '/signup'
   })
 );
+
+app.get('/users/:username', (req, res) => {
+  console.log(req.params);
+  User.findOne({ 'username': req.params.username }, (err, user) => {
+    if (err) console.log(err); // TODO: render error page.
+    else if (!user) console.log('No such user.'); // TODO: see above.
+    else res.render('user/show', {
+      title: user.username, user: req.user, user_param: user
+    });
+  });
+});
 
 app.listen(3000);
