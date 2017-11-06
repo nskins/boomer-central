@@ -22,21 +22,23 @@ module.exports = () => {
     });
   }));
 
-  passport.use('signup', new LocalStrategy((username, password, done) => {
-    User.findOne({ 'username': username }, (err, user) => {
-      if (err) { return done(err); }
-      if (user) { return done(null, false); }
-      else {
-        var newUser = new User();
-        newUser.username = username;
-        newUser.password = password;
+  passport.use('signup', new LocalStrategy(
+    { passReqToCallback: true }, (req, username, password, done) => {
+      User.findOne({ 'username': username }, (err, user) => {
+        if (err) { return done(err); }
+        if (user) { return done(null, false); }
+        else {
+          var newUser = new User();
+          newUser.username = username;
+          newUser.password = password;
+          newUser.favoriteTrick = req.body.favoriteTrick;
 
-        // Create the user's account.
-        newUser.save((err) => {
-          if (err) { return done(err); }
-          return done(null, newUser);
-        });
-      }
+          // Create the user's account.
+          newUser.save((err) => {
+            if (err) { return done(err); }
+            return done(null, newUser);
+          });
+        }
     });
   }));
 };

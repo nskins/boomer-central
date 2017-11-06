@@ -3,5 +3,6 @@ var mongoose = require('mongoose');
 module.exports = mongoose.model('User', {
   username: String,
   password: String,
-  admin: { type: Boolean, default: false }
+  admin: { type: Boolean, default: false },
+  favoriteTrick: String
 });
