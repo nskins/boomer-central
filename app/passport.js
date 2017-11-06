@@ -28,15 +28,20 @@ module.exports = () => {
         if (err) { return done(err); }
         if (user) { return done(null, false); }
         else {
-          var newUser = new User();
-          newUser.username = username;
-          newUser.password = password;
-          newUser.favoriteTrick = req.body.favoriteTrick;
+          User.count({}, (err, count) => {
+            var newUser = new User();
+            newUser.username = username;
+            newUser.password = password;
+            newUser.favoriteTrick = req.body.favoriteTrick;
 
-          // Create the user's account.
-          newUser.save((err) => {
-            if (err) { return done(err); }
-            return done(null, newUser);
+            // Automatically set the first user to administrator.
+            if (count == 0) newUser.admin = true;
+
+            // Create the user's account.
+            newUser.save((err) => {
+              if (err) { return done(err); }
+              return done(null, newUser);
+            });
           });
         }
     });

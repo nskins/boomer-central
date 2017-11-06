@@ -69,7 +69,6 @@ app.post('/signup',
 );
 
 app.get('/users/:username', (req, res) => {
-  console.log(req.params);
   User.findOne({ 'username': req.params.username }, (err, user) => {
     if (err) console.log(err); // TODO: render error page.
     else if (!user) console.log('No such user.'); // TODO: see above.
