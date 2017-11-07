@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+  for user in users
+    table
+      td
+        a(href='users/' + user.username) #{user.username}

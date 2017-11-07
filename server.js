@@ -68,10 +68,17 @@ app.post('/signup',
   })
 );
 
+app.get('/users/', (req, res) => {
+  User.find({}, (err, users) => {
+    if (err) console.log(err); // TODO: render 500 error page.
+    else res.render('user/all', { title: 'Users', user: req.user, users: users });
+  });
+});
+
 app.get('/users/:username', (req, res) => {
   User.findOne({ 'username': req.params.username }, (err, user) => {
-    if (err) console.log(err); // TODO: render error page.
-    else if (!user) console.log('No such user.'); // TODO: see above.
+    if (err) console.log(err); // TODO: render 500 error page.
+    else if (!user) console.log('No such user.'); // TODO: render 404 error page.
     else res.render('user/show', {
       title: user.username, user: req.user, user_param: user
     });
