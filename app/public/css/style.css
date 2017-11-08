@@ -4,8 +4,6 @@ a {
 
 body {
   background-color: rgba(10,10,255,0.2);
-  margin-left: 20%;
-  margin-right: 20%;
   text-align: center;
 }
 
@@ -13,6 +11,11 @@ body {
 body table {
     margin-left:auto;
     margin-right:auto;
+}
+
+div.content {
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 footer p {
@@ -36,4 +39,18 @@ hr {
 img {
   margin-top: 2%;
   margin-bottom: 2%;
+}
+
+nav {
+  margin-left: 0%;
+  margin-right: 0%;
+}
+
+nav input {
+  float: right;
+  margin: 0.5%;
+}
+
+nav input:hover {
+  background-color: white;
 }
