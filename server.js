@@ -17,6 +17,7 @@ app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'pug');
 
 // Static resource files.
+app.use('/bower_components', express.static(path.join(__dirname, 'app/public/bower_components')));
 app.use('/css', express.static(path.join(__dirname, 'app/public/css')));
 app.use('/img', express.static(path.join(__dirname, 'app/public/img')));
 

@@ -1,0 +1,28 @@
+{
+  "name": "boomer-central",
+  "description": "News and pictures of everyone's favorite hound.",
+  "main": "server.js",
+  "authors": [
+    "Nicholas Skinsacos"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Boomer",
+    "central",
+    "news",
+    "pics",
+    "pictures"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
