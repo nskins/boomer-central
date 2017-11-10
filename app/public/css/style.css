@@ -26,6 +26,7 @@ footer p {
 
 h1 {
   color: #4f0000;
+  font-weight: bold;
 }
 
 header input {
@@ -38,8 +39,8 @@ hr {
 }
 
 img {
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 nav {
