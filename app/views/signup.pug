@@ -1,26 +1,19 @@
 extends layout
 
 block content
-  form(action="/signup", method="post")
-    table
-      tr
-        td
-          label Username:
-        td
-          input(type="text", name="username")
-      tr
-        td
-          label Password:
-        td
-          input(type="password", name="password")
-      tr
-        td
-          label Favorite trick:
-        td
-          select(name="favoriteTrick")
+  form(class="container" action="/signup", method="post")
+    div(class="col-md-4")
+    div(class="col-md-4")
+      input(type="text", name="username" id="username" class="form-control" placeholder="Username")
+      input(type="password" name="password" id="password" class="form-control" placeholder="Password")
+      div(class="row text-center")
+        div(class="col-md-6")
+          label(for="favoriteTrick" class="form-control") Favorite Trick?:
+        div(class="col-md-6")
+          select(name="favoriteTrick" class="form-control")
+            option Fetch
+            option Jump
             option Roll over
             option Spin
-            option Fetch
-      tr
-        td(colspan="2")
-          input(type="submit" value="Submit")
+      input(type="submit" value="Sign up" class="btn btn-primary btn-submit")
+    div(class="col-md-4")

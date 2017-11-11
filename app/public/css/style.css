@@ -15,6 +15,7 @@ body table {
 
 .btn-submit {
   float: right;
+  margin: 3%;
 }
 
 footer p {
@@ -23,7 +24,7 @@ footer p {
 }
 
 .form-control {
-  margin: 5%;
+  margin: 4%;
 }
 
 h1 {
