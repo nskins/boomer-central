@@ -86,4 +86,8 @@ app.get('/users/:username', (req, res) => {
   });
 });
 
+app.get('*', (req, res) => {
+  res.render('404', { title: 'Boomer Central', user: req.user, url: req.url });
+});
+
 app.listen(3000);
