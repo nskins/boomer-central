@@ -13,9 +13,17 @@ body table {
     margin-right:auto;
 }
 
+.btn-submit {
+  float: right;
+}
+
 footer p {
   color: #f22;
   font-weight: bold;
+}
+
+.form-control {
+  margin: 5%;
 }
 
 h1 {
