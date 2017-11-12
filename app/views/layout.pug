@@ -16,8 +16,4 @@ html
         input(class="btn signup-btn" type="button" value="Signup" onclick="location.href='/signup';")
     h1(class="text-center") #{title}
     block content
-    - if (user && user.admin)
-      footer
-        hr
-        p Logged in as admin.
     script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
