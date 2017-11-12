@@ -8,7 +8,7 @@ block content
       for user in users
         p(class="pull-right") Favorite trick: #{user.favoriteTrick}
         p
-          a(href='users/' + user.username) #[strong #{user.username}]
+          a(href='/users/' + user.username) #[strong #{user.username}]
         hr
     div(class="col-md-4")
 
