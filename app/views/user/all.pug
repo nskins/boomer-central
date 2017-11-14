@@ -1,14 +1,17 @@
 extends ../layout
 
 block content
-  div(class="container")
-    div(class="col-md-4")
-    div(class="col-md-4")
-      hr
-      for user in users
-        p(class="pull-right") Favorite trick: #{user.favoriteTrick}
-        p
-          a(href='/users/' + user.username) #[strong #{user.username}]
-        hr
-    div(class="col-md-4")
+  div(class="container text-center")
+    - const USERS_PER_ROW = 4;
+    - for (var i = 0; i < Math.ceil(users.length/USERS_PER_ROW); ++i) {
+      - for (var j = 0; j < USERS_PER_ROW; ++j) {
+        div(class="col-md-3")
+          - var user;
+          - if(user = users[i*USERS_PER_ROW + j]) {
+            a(href="/users/" + user.username)
+              img(class="img-thumbnail avatar-sm" src=user.avatar)
+              p #{user.username}
+          - }
+      - }
+    - }
 

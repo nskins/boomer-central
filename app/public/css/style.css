@@ -1,3 +1,13 @@
+.avatar-lg {
+  max-height: 150px;
+  max-width: 150px;
+}
+
+.avatar-sm {
+  max-height: 100px;
+  max-width: 100px;
+}
+
 a {
   outline: none;
 }
