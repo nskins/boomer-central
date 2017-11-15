@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  form(class="container" action="/users/" + user_param.username + "/edit", method="patch")
+    div(class="col-md-3")
+    div(class="col-md-6")
+      div(class="row text-center")
+        div(class="col-md-6")
+          label(class="form-control" for="avatar") Upload an avatar:
+        div(class="col-md-6")
+          input(class="btn btn-default" type="file" name="avatar")
+      div(class="row text-center")
+        div(class="col-md-6")
+          label(for="favoriteTrick" class="form-control") Favorite Trick?:
+        div(class="col-md-6")
+          select(name="favoriteTrick" class="form-control" id="favoriteTrick")
+            - ["Fetch", "Jump", "Roll over", "Spin"].forEach(trick => {
+              - if (trick == user_param.favoriteTrick) {
+                option(selected="selected") #{trick}
+              - } else {
+                option #{trick}
+              - }
+            - });
+      input(type="submit" value="Save Changes" class="btn btn-primary btn-submit")
+    div(class="col-md-3")

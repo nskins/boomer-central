@@ -86,6 +86,15 @@ app.get('/users/:username', (req, res) => {
   });
 });
 
+app.get('/users/:username/edit', (req, res) => {
+  User.findOne({ 'username': req.params.username }, (err, user) => {
+    if (err) console.log(err);
+    else if (!user) res.render('404', {title: 'Boomer Central', user: req.user, url: req.url });
+    // TODO: authentication.
+    else res.render('user/edit', { title: 'Edit Profile', user: req.user, user_param: user });
+  });
+});
+
 app.get('*', (req, res) => {
   res.render('404', { title: 'Boomer Central', user: req.user, url: req.url });
 });
