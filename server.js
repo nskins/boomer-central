@@ -96,7 +96,7 @@ app.post('/users/:username', upload.single('avatar'), (req, res) => {
     else {
       if (req.body._method == 'patch') {
         // Update the attributes.
-        user.avatar = req.file.path;
+        if (req.file) user.avatar = req.file.path;
         user.favoriteTrick = req.body.favoriteTrick;
 
         // Save the changes.
