@@ -1,8 +1,10 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
+const multer = require('multer');
 const path = require('path');
 const session = require('express-session');
+const upload = multer({ dest: 'uploads/' });
 const User = require('./app/models/user.js');
 
 // Connect to MongoDB.
@@ -20,6 +22,7 @@ app.set('view engine', 'pug');
 app.use('/bower_components', express.static(path.join(__dirname, 'app/public/bower_components')));
 app.use('/css', express.static(path.join(__dirname, 'app/public/css')));
 app.use('/img', express.static(path.join(__dirname, 'app/public/img')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Session handling.
 app.use(session({
@@ -83,6 +86,26 @@ app.get('/users/:username', (req, res) => {
     else res.render('user/show', {
       title: user.username, user: req.user, user_param: user
     });
+  });
+});
+
+app.post('/users/:username', upload.single('avatar'), (req, res) => {
+  User.findOne({ 'username': req.params.username }, (err, user) => {
+    if (err) console.log(err);
+    else if (!user) res.render('404', { title: 'Boomer Central', user: req.user, url: req.url });
+    else {
+      if (req.body._method == 'patch') {
+        // Update the attributes.
+        user.avatar = req.file.path;
+        user.favoriteTrick = req.body.favoriteTrick;
+
+        // Save the changes.
+        user.save((err) => {
+          if (err) { return done(err); }
+          res.redirect('/users/' + req.params.username);
+        });
+      }
+    }
   });
 });
 

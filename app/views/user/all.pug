@@ -9,7 +9,7 @@ block content
           - var user;
           - if(user = users[i*USERS_PER_ROW + j]) {
             a(href="/users/" + user.username)
-              img(class="img-thumbnail avatar-sm" src=user.avatar)
+              img(class="img-thumbnail avatar-sm" src='/' + user.avatar)
               p #{user.username}
           - }
       - }

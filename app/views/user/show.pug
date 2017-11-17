@@ -4,7 +4,7 @@ block content
   div(class="container text-center")
     div(class="col-md-4")
     div(class="col-md-4")
-      img(class="img-thumbnail avatar-lg" src=user_param.avatar)
+      img(class="img-thumbnail avatar-lg" src='/' + user_param.avatar)
       br
       - const EDIT_URL = '/users/' + user_param.username + '/edit'
       - if (user && (user.username == user_param.username)) {
