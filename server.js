@@ -72,7 +72,7 @@ app.post('/signup',
   })
 );
 
-app.get('/users/', (req, res) => {
+app.get('/users', (req, res) => {
   User.find({}, (err, users) => {
     if (err) console.log(err);
     else res.render('user/all', { title: 'Users', user: req.user, users: users });
