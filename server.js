@@ -75,7 +75,7 @@ app.post('/signup',
 app.get('/users', (req, res) => {
   User.find({}, (err, users) => {
     if (err) console.log(err);
-    else res.render('user/all', { title: 'Users', user: req.user, users: users });
+    else res.render('user/all', { title: 'User Directory', user: req.user, users: users });
   });
 });
 
