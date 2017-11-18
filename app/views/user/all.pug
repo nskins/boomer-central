@@ -10,7 +10,7 @@ block content
           - if(_user = users[i*USERS_PER_ROW + j]) {
             a(href="/users/" + _user.username)
               img(class="img-thumbnail avatar-sm" src='/' + _user.avatar)
-              p #{user.username}
+              p #{_user.username}
           - }
       - }
     - }
