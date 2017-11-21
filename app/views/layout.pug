@@ -6,7 +6,7 @@ html
     link(rel="stylesheet", type="text/css", href="/css/style.css")
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
   body
-    nav(class="navbar navbar-inverse")
+    nav(class="navbar nav-dark bg-dark")
       a(class="navbar-brand" href="/") Boomer Central
       - if (user)
         div(class="btn dropdown pull-right")
@@ -19,8 +19,9 @@ html
             li: a(onclick="$('#logout').submit()") Logout
         form(id="logout" action="/logout", method="post")
       - else
-        input(class="btn login-btn" type="button" value="Login" onclick="location.href='/login';")
-        input(class="btn signup-btn" type="button" value="Signup" onclick="location.href='/signup';")
+        ul(class="nav nav-pills float-right")
+          li(class="nav-item"): a(class="nav-link" href="/signup") Signup
+          li(class="nav-item"): a(class="nav-link" href="/login") Login
     h1(class="text-center") #{title}
     block content
     script(src="/bower_components/jquery/dist/jquery.js")
