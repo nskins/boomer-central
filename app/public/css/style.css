@@ -28,7 +28,7 @@ body table {
   margin: 3%;
 }
 
-.container p {
+.content {
   margin-left: 10%;
   margin-right: 10%;
 }
@@ -38,14 +38,21 @@ footer p {
   font-weight: bold;
 }
 
+.form-content {
+  margin-left: 33%;
+  margin-right: 33%;
+}
+
 .form-control {
-  margin: 4%;
+  margin-bottom: 4%;
+  margin-top: 4%;
 }
 
 h1 {
   color: #4f0000;
   font-weight: bold;
   margin-top: 1.5%;
+  margin-bottom: 1.5%;
 }
 
 header input {
@@ -64,7 +71,7 @@ hr {
 
 img {
   image-orientation: from-image;
-  margin: 1.5%;
+  margin-bottom: 1.5%;
 }
 
 nav {
