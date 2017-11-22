@@ -17,12 +17,6 @@ body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-/* Center the table. */
-body table {
-    margin-left:auto;
-    margin-right:auto;
-}
-
 .btn-submit {
   float: right;
   margin: 3%;
@@ -55,10 +49,6 @@ h1 {
   margin-bottom: 1.5%;
 }
 
-header input {
-  float: right;
-}
-
 hr {
   background-color: black;
   height: 3px;
@@ -85,13 +75,4 @@ nav a {
 
 nav a:hover {
   color: lightgrey;
-}
-
-nav input {
-  float: right;
-  margin: 0.5%;
-}
-
-nav input:hover {
-  background-color: white;
 }

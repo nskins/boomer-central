@@ -9,15 +9,15 @@ html
     nav(class="navbar nav-dark bg-dark")
       a(class="navbar-brand" href="/") Boomer Central
       - if (user)
-        div(class="btn dropdown pull-right")
-          button(class="btn btn-default dropdown-toggle" type="button" id="ddMoreActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-            span(class="glyphicon glyphicon-menu-hamburger")
-          ul(class="dropdown-menu dropdown-menu-right" aria-labelledby="ddMoreActions")
-            li: a(href="/users/" + user.username) My Profile
-            li: a(href="/users") User Directory
-            li(role="separator" class="divider")
-            li: a(onclick="$('#logout').submit()") Logout
-        form(id="logout" action="/logout", method="post")
+        div(class="navbar-expand")
+          div(class="navbar-nav nav-item dropdown")
+            button(class="btn btn-secondary dropdown-toggle float-right" type="button" id="ddMoreActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Menu
+            div(class="dropdown-menu dropdown-menu-right" aria-labelledby="ddMoreActions")
+              a(class="dropdown-item" href="/users/" + user.username) My Profile
+              a(class="dropdown-item" href="/users") User Directory
+              div(class="dropdown-divider")
+              a(class="dropdown-item" href="#" onclick="$('#logout').submit()") Logout
+          form(id="logout" action="/logout", method="post")
       - else
         ul(class="nav nav-pills float-right")
           li(class="nav-item"): a(class="nav-link" href="/signup") Signup
@@ -25,4 +25,5 @@ html
     h1(class="text-center") #{title}
     block content
     script(src="/bower_components/jquery/dist/jquery.js")
+    script(src="/bower_components/popper.js/dist/umd/popper.js")
     script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
