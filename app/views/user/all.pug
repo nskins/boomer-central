@@ -2,16 +2,18 @@ extends ../layout
 
 block content
   div(class="container text-center")
-    - const USERS_PER_ROW = 4;
-    - for (var i = 0; i < Math.ceil(users.length/USERS_PER_ROW); ++i) {
-      - for (var j = 0; j < USERS_PER_ROW; ++j) {
-        div(class="col-md-3")
-          - var _user;
-          - if(_user = users[i*USERS_PER_ROW + j]) {
-            a(href="/users/" + _user.username)
-              img(class="img-thumbnail avatar-sm" src='/' + _user.avatar)
-              p #{_user.username}
+    div(class="content")
+      - const USERS_PER_ROW = 4;
+      - for (var i = 0; i < Math.ceil(users.length/USERS_PER_ROW); ++i) {
+        div(class="row")
+          - for (var j = 0; j < USERS_PER_ROW; ++j) {
+            div(class="col-md-3")
+              - var _user;
+              - if(_user = users[i*USERS_PER_ROW + j]) {
+                a(href="/users/" + _user.username)
+                  img(class="img-thumbnail avatar-sm" src='/' + _user.avatar)
+                  p #{_user.username}
+              - }
           - }
       - }
-    - }
 
