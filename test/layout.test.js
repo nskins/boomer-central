@@ -3,17 +3,23 @@ const Nightmare = require('nightmare');
 
 const url = 'http://localhost:3000/';
 
-describe('Layout', () => {
-  test('Bootstrap CSS file loads without error', done => {
+// Test that the specified resource (name) loads.
+// It can be found by the selector on the layout page.
+var testResourceLoads = (name, selector) => {
+  test(name + ' loads without error', done => {
     new Nightmare()
       .goto(url)
-      .evaluate(() => {
-        return document.querySelector('#bootstrap-css').href;
-      })
+      .evaluate(selector => {
+        return document.querySelector(selector).href;
+      }, selector)
       .end()
       .then(href => {
         helper.pageLoads(href, done);
       })
       .catch(done);
   });
+};
+
+describe('Layout', () => {
+  testResourceLoads('Bootstrap CSS', '#bootstrap-css');
 });
