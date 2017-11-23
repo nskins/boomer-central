@@ -3,7 +3,7 @@ html
   head
     title Boomer Central
     link(id="bootstrap-css" rel="stylesheet", type="text/css", href="/bower_components/bootstrap/dist/css/bootstrap.css")
-    link(rel="stylesheet", type="text/css", href="/css/style.css")
+    link(id="style-css" rel="stylesheet", type="text/css", href="/css/style.css")
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
   body
     nav(class="navbar nav-dark bg-dark")
@@ -24,6 +24,6 @@ html
           li(class="nav-item"): a(class="nav-link login-link" href="/login") Login
     h1(class="text-center") #{title}
     block content
-    script(src="/bower_components/jquery/dist/jquery.js")
-    script(src="/bower_components/popper.js/dist/umd/popper.js")
-    script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
+    script(id="jquery-js" src="/bower_components/jquery/dist/jquery.js")
+    script(id="popper-js" src="/bower_components/popper.js/dist/umd/popper.js")
+    script(id="bootstrap-js" src="/bower_components/bootstrap/dist/js/bootstrap.js")
