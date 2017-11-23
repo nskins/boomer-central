@@ -20,8 +20,8 @@ html
           form(id="logout" action="/logout", method="post")
       - else
         ul(class="nav nav-pills float-right")
-          li(class="nav-item"): a(class="nav-link" href="/signup") Signup
-          li(class="nav-item"): a(class="nav-link" href="/login") Login
+          li(class="nav-item"): a(class="nav-link signup-link" href="/signup") Signup
+          li(class="nav-item"): a(class="nav-link login-link" href="/login") Login
     h1(class="text-center") #{title}
     block content
     script(src="/bower_components/jquery/dist/jquery.js")

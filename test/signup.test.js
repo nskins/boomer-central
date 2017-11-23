@@ -4,5 +4,5 @@ const url = 'http://localhost:3000/signup';
 
 describe('/signup (Signup Page)', () => {
   helper.testPageLoads(url);
-  helper.testNavigateTo('.signup-btn', url);
+  helper.testNavigateTo('.signup-link', url);
 });
