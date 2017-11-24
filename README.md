@@ -1,14 +1,49 @@
 # Boomer Central
 
-Web app for our favorite doggo.
+Boomer is a doggo like none other. This fan site aims to be the hottest place on the web for news, pictures, and discussion of our favorite pup.
 
 ## Setup
 
-You should have a MongoDB database with collections matching those specified in the models directory. See the connection URI at db.js for naming conventions. I am considering how to automate this step.
+In order to setup MongoDB (you only need to do this once), first run the MongoDB daemon process in one terminal:
 
-Then enter these commands to run the app:
+```bash
+$ mongod
+```
+
+In another terminal, connect via the Mongo shell:
+
+```bash
+$ mongo
+```
+
+Then run the following commands in the Mongo shell:
+
+```mongo
+$ use boomer-central
+$ db.createCollection('users')
+```
+
+In the future, we would like to automate these MongoDB migrations.
+
+Install the dependencies, and then, with the MongoDB daemon process still running, start the app (port 3000):
 
 ```bash
 $ npm install
 $ npm start
 ```
+
+With the app running, you can also run the test suite:
+
+```bash
+$ npm test
+```
+
+## Tech Stack
+
+Node.js - server-side Javascript
+Express - web application framework
+MongoDB - document-oriented database
+Bootstrap 4 - CSS framework
+Pug - Template engine (may change in future)
+Jest - Delightful Javascript testing
+Nightmare - UI testing via browser automation
