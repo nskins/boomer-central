@@ -29,6 +29,7 @@ Install the dependencies, and then, with the MongoDB daemon process still runnin
 
 ```bash
 $ npm install
+$ bower install
 $ npm start
 ```
 
