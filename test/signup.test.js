@@ -5,6 +5,6 @@ var url = config.HOST;
 url.pathname = '/signup';
 
 describe('/signup (Signup Page)', () => {
-  helper.testPageLoads(url);
+  helper.testPathLoads(url.pathname);
   helper.testNavigateTo('.signup-link', url.href);
 });

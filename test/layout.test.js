@@ -2,6 +2,7 @@ const config = require('./config');
 const helper = require('./helper');
 const Nightmare = require('nightmare');
 const path = require('path');
+const { URL } = require('url');
 
 const url = config.HOST;
 
@@ -23,7 +24,8 @@ var testResourceLoads = (name, selector) => {
       }, extension, selector)
       .end()
       .then(href => {
-        helper.pageLoads(href, done);
+        var pathname = new URL(href).pathname;
+        helper.pathLoads(pathname, done);
       })
       .catch(done);
   });
