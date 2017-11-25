@@ -1,1 +1,3 @@
-module.exports.HOST = 'http://localhost:3000';
+const { URL } = require('url');
+
+module.exports.HOST = new URL('http://localhost:3000');

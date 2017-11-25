@@ -31,7 +31,7 @@ module.exports.testPageLoads = function(url) {
 module.exports.testNavigateTo = function(selector, destination) {
   test('It should navigate there via the selector', done => {
     new Nightmare()
-      .goto(config.HOST + '/')
+      .goto(config.HOST)
       .click(selector)
       .url()
       .end()

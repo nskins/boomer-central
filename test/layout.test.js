@@ -3,7 +3,7 @@ const helper = require('./helper');
 const Nightmare = require('nightmare');
 const path = require('path');
 
-const url = config.HOST + '/';
+const url = config.HOST;
 
 // Test that the specified resource (name) loads.
 // It can be found by the selector on the layout page.
