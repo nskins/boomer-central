@@ -1,3 +1,4 @@
+const config = require('./config');
 const Nightmare = require('nightmare');
 
 // This helper ensures that the specified url loads without error.
@@ -30,7 +31,7 @@ module.exports.testPageLoads = function(url) {
 module.exports.testNavigateTo = function(selector, destination) {
   test('It should navigate there via the selector', done => {
     new Nightmare()
-      .goto('http://localhost:3000/')
+      .goto(config.HOST + '/')
       .click(selector)
       .url()
       .end()

@@ -1,6 +1,7 @@
+const config = require('./config');
 const helper = require('./helper');
 
-const url = 'http://localhost:3000/signup';
+const url = config.HOST + '/signup';
 
 describe('/signup (Signup Page)', () => {
   helper.testPageLoads(url);
