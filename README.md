@@ -25,7 +25,7 @@ $ db.createCollection('users')
 
 In the future, we would like to automate these MongoDB migrations.
 
-Install the dependencies, and then, with the MongoDB daemon process still running, start the app (port 3000):
+Install the dependencies, and then, with the MongoDB daemon process still running, start the server (port 3000):
 
 ```bash
 $ npm install
@@ -33,7 +33,7 @@ $ bower install
 $ npm start
 ```
 
-With the app running, you can also run the test suite:
+If desired, run the test suite (ensure the server is not already running):
 
 ```bash
 $ npm test
