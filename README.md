@@ -1,6 +1,6 @@
 # Boomer Central
 
-Boomer is a doggo like none other. This fan site aims to be the hottest place on the web for news, pictures, and discussion of our favorite pup.
+Boomer is our family dog and great friend. To remember his legacy for all time, we are developing this fan website to host images and stories about Boomer. Currently, we are working on thorough testing for the existing codebase before any additional functionality. If you have experience in Express & Jest mocking, and would like to get involved, then please contact the owner (nskins@umich.edu). Also stay tuned for more opportunities!
 
 ## Setup
 
@@ -41,10 +41,10 @@ $ npm test
 
 ## Tech Stack
 
-Node.js - server-side Javascript
-Express - web application framework
-MongoDB - document-oriented database
-Bootstrap 4 - CSS framework
-Pug - Template engine (may change in future)
-Jest - Delightful Javascript testing
-Nightmare - UI testing via browser automation
+- Node.js - Server-side Javascript
+- Express - Web application framework
+- MongoDB - Document-oriented database
+- Bootstrap 4 - CSS framework
+- Pug - Template engine (may change in future)
+- Jest - Delightful Javascript testing
+- Nightmare - UI testing via browser automation
