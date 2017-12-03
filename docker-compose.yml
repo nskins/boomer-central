@@ -1,0 +1,18 @@
+db:
+  image: mongo:3.2
+  ports:
+    - "27017:27017"
+  restart: always
+  volumes:
+    - './data:/data/db'
+web:
+  build: .
+  volumes:
+    - ./:/usr/src/app
+  environment:
+     - NODE_ENV=docker
+  ports:
+    - "3000:3000"
+  links:
+    - db
+  command: npm start

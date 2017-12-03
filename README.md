@@ -1,31 +1,44 @@
-# Boomer Central
+# Boomer Central [![Build Status](https://travis-ci.org/nskins/boomer-central.svg?branch=master)](https://travis-ci.org/nskins/boomer-central)
 
-Boomer is our family dog and great friend. To remember his legacy for all time, we are developing this fan website to host images and stories about Boomer. Currently, we are working on thorough testing for the existing codebase before any additional functionality. If you have experience in Express & Jest mocking, and would like to get involved, then please contact the owner (nskins@umich.edu). Also stay tuned for more opportunities!
+Boomer is our family dog and great friend. To remember his legacy for all time, we are developing this fan website to host images and stories about Boomer. Our ultimate goal is to create a more abstract website so that one could host a similar website for one's own family pet. If you would like to get involved, please see our issues or contact the owner (nskins@umich.edu).
 
 ## Setup
 
-In order to setup MongoDB (you only need to do this once), first run the MongoDB daemon process in one terminal:
+### Docker (recommended)
+
+Use Docker to assemble the application and its services:
+
+```bash
+$ docker-compose build
+```
+
+Run the application (available on port 3000):
+
+```bash
+$ docker-compose up -d
+```
+
+If desired, run the test suite:
+
+```bash
+$ docker-compose exec web npm test
+```
+
+Stop the application:
+
+```bash
+$ docker-compose down
+```
+
+### Without Docker
+
+Run the MongoDB daemon process in one terminal:
 
 ```bash
 $ mongod
 ```
 
-In another terminal, connect via the Mongo shell:
-
-```bash
-$ mongo
-```
-
-Then run the following commands in the Mongo shell:
-
-```mongo
-$ use boomer-central
-$ db.createCollection('users')
-```
-
-In the future, we would like to automate these MongoDB migrations.
-
-Install the dependencies, and then, with the MongoDB daemon process still running, start the server (port 3000):
+In another terminal, install the dependencies and start the server (port 3000):
 
 ```bash
 $ npm install
@@ -33,7 +46,7 @@ $ bower install
 $ npm start
 ```
 
-If desired, run the test suite (ensure the server is not already running):
+In a third terminal, if desired, run the test suite:
 
 ```bash
 $ npm test
@@ -41,10 +54,16 @@ $ npm test
 
 ## Tech Stack
 
-- Node.js - Server-side Javascript
-- Express - Web application framework
-- MongoDB - Document-oriented database
-- Bootstrap 4 - CSS framework
-- Pug - Template engine (may change in future)
-- Jest - Delightful Javascript testing
-- Nightmare - UI testing via browser automation
+### Application
+
+- **Node.js** - Server-side JavaScript
+- **Express** - Web application framework
+- **MongoDB** - Document-oriented database
+- **Bootstrap 4** - CSS framework
+- **Pug** - Template engine (may change in future)
+
+### Continuous Delivery
+
+- **Jest** - Delightful JavaScript testing
+- **Docker** - Software containerization platform
+- **Travis CI** - Continuous integration service

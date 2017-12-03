@@ -6,5 +6,4 @@ url.pathname = '/signup';
 
 describe('/signup (Signup Page)', () => {
   helper.testPathLoads(url.pathname);
-  helper.testNavigateTo('.signup-link', url.href);
 });

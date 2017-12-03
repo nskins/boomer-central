@@ -4,7 +4,7 @@
   "description": "News and pictures of everyone's favorite hound.",
   "main": "server.js",
   "scripts": {
-    "test": "node server.js & PID=$!; jest; kill -9 $PID"
+    "test": "jest"
   },
   "keywords": [
     "Boomer",
@@ -22,7 +22,6 @@
     "jest": "^21.2.1",
     "mongoose": "^4.12.4",
     "multer": "^1.3.0",
-    "nightmare": "^2.10.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pug": "^2.0.0-rc.4",
