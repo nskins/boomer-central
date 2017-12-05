@@ -119,6 +119,7 @@ app.get('/users/:username/edit', (req, res) => {
 });
 
 app.get('*', (req, res) => {
+  res.status(404);
   res.render('404', { title: 'Boomer Central', user: req.user, url: req.url });
 });
 
