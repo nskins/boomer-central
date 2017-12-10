@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const Image = require('./models/image');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
@@ -71,6 +72,25 @@ app.post('/signup',
     failureRedirect: '/signup'
   })
 );
+
+app.post('/images', upload.single('image'), (req, res) => {
+  let image = new Image();
+  image.name = req.body.name;
+  image.description = req.body.description;
+  image.path = req.file.path;
+  image.created_by = req.user._id;
+  image.likes = [];
+  image.comments = [];
+
+  image.save((err) => {
+    if (err) { console.log(err); }
+    res.redirect('/');
+  });
+});
+
+app.get('/images/new', (req, res) => {
+  res.render('image/new', { title: 'Create Image', user: req.user, url: req.url });
+});
 
 app.get('/users', (req, res) => {
   User.find({}, (err, users) => {
