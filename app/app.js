@@ -92,6 +92,16 @@ app.get('/images/new', (req, res) => {
   res.render('image/new', { title: 'Create Image', user: req.user, url: req.url });
 });
 
+app.get('/images/:id', (req, res) => {
+  Image.findById(req.params.id, (err, image) => {
+    if (err) console.log(err);
+    else if (!image) res.render('404', { title: 'Boomer Central', user: req.user, url: req.url });
+    else res.render('image/show', {
+      title: image.name, user: req.user, image: image
+    });
+  });
+});
+
 app.get('/users', (req, res) => {
   User.find({}, (err, users) => {
     if (err) console.log(err);
