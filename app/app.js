@@ -73,6 +73,13 @@ app.post('/signup',
   })
 );
 
+app.get('/images', (req, res) => {
+  Image.find({}, (err, images) => {
+    if (err) console.log(err);
+    else res.render('image/all', { title: 'Image Gallery', user: req.user, images: images });
+  });
+});
+
 app.post('/images', upload.single('image'), (req, res) => {
   let image = new Image();
   image.name = req.body.name;

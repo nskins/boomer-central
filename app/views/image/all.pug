@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  div(class="container text-center")
+    div(class="content")
+      - const IMAGES_PER_ROW = 4;
+      - for (var i = 0; i < Math.ceil(images.length/IMAGES_PER_ROW); ++i) {
+        div(class="row")
+          - for (var j = 0; j < IMAGES_PER_ROW; ++j) {
+            div(class="col-md-3")
+              - var image;
+              - if(image = images[i*IMAGES_PER_ROW + j]) {
+                a(href="/images/" + image._id.toString())
+                  img(class="img-thumbnail avatar-sm" src='/' + image.path)
+                  p #{image.name}
+              - }
+          - }
+      - }
+
