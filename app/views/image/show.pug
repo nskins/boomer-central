@@ -3,6 +3,7 @@ extends ../layout
 block content
   div(class="container text-center")
     div(class="content")
+      p: strong Submitted by #[a(href='/users/' + user_param.username) #{user_param.username}]
       img(class="img-thumbnail" src='/' + image.path)
       br
       p #{image.description}
