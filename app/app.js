@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const Image = require('./models/image');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
@@ -71,6 +72,47 @@ app.post('/signup',
     failureRedirect: '/signup'
   })
 );
+
+app.get('/images', (req, res) => {
+  Image.find({}, (err, images) => {
+    if (err) console.log(err);
+    else res.render('image/all', { title: 'Image Gallery', user: req.user, images: images });
+  });
+});
+
+app.post('/images', upload.single('image'), (req, res) => {
+  let image = new Image();
+  image.name = req.body.name;
+  image.description = req.body.description;
+  image.path = req.file.path;
+  image.created_by = req.user._id;
+  image.likes = [];
+  image.comments = [];
+
+  image.save((err) => {
+    if (err) { console.log(err); }
+    res.redirect('/');
+  });
+});
+
+app.get('/images/new', (req, res) => {
+  res.render('image/new', { title: 'Create Image', user: req.user, url: req.url });
+});
+
+app.get('/images/:id', (req, res) => {
+  Image.findById(req.params.id, (err, image) => {
+    if (err) console.log(err);
+    else if (!image) res.render('404', { title: 'Boomer Central', user: req.user, url: req.url });
+    else {
+      User.findById(image.created_by, (err, user) => {
+        if (err) console.log(err);
+        res.render('image/show', {
+          title: image.name, user: req.user, image: image, user_param: user
+        });
+      });
+    }
+  });
+});
 
 app.get('/users', (req, res) => {
   User.find({}, (err, users) => {
