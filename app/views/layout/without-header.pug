@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title Boomer Central
+    link(id="bootstrap-css" rel="stylesheet", type="text/css", href="/bower_components/bootstrap/dist/css/bootstrap.css")
+    link(id="style-css" rel="stylesheet", type="text/css", href="/css/style.css")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+  body
+    nav(class="navbar nav-dark bg-dark")
+      a(class="navbar-brand" href="/") Boomer Central
+      - if (user)
+        div(class="navbar-expand")
+          div(class="navbar-nav nav-item dropdown")
+            button(class="btn btn-secondary dropdown-toggle float-right" type="button" id="ddMoreActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Menu
+            div(class="dropdown-menu dropdown-menu-right" aria-labelledby="ddMoreActions")
+              a(class="dropdown-item" href="/images/new") New Image
+              a(class="dropdown-item" href="/images") Image Gallery
+              div(class="dropdown-divider")
+              a(class="dropdown-item" href="/users/" + user.username) My Profile
+              a(class="dropdown-item" href="/users") User Directory
+              div(class="dropdown-divider")
+              a(class="dropdown-item" href="#" onclick="$('#logout').submit()") Logout
+          form(id="logout" action="/logout", method="post")
+      - else
+        ul(class="nav nav-pills float-right")
+          li(class="nav-item"): a(class="nav-link signup-link" href="/signup") Signup
+          li(class="nav-item"): a(class="nav-link login-link" href="/login") Login
+    block without-header-content
+    script(id="jquery-js" src="/bower_components/jquery/dist/jquery.js")
+    script(id="popper-js" src="/bower_components/popper.js/dist/umd/popper.js")
+    script(id="bootstrap-js" src="/bower_components/bootstrap/dist/js/bootstrap.js")
