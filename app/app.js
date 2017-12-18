@@ -125,9 +125,13 @@ app.get('/users/:username', (req, res) => {
   User.findOne({ 'username': req.params.username }, (err, user) => {
     if (err) console.log(err);
     else if (!user) res.render('404', { title: 'Boomer Central', user: req.user, url: req.url });
-    else res.render('user/show', {
-      title: user.username, user: req.user, user_param: user
-    });
+    else {
+      Image.find({ created_by: user.id }, (err, images) => {
+        res.render('user/show', {
+          title: user.username, user: req.user, user_param: user, images: images
+        });
+      });
+    }
   });
 });
 
