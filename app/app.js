@@ -114,6 +114,27 @@ app.get('/images/:id', (req, res) => {
   });
 });
 
+app.post('/images/:id', (req, res) => {
+  Image.findById(req.params.id, (err, image) => {
+    if (err) console.log(err);
+    else if (!image) res.render('404', { title: 'Boomer Central', user: req.user, url: req.url });
+    else {
+      if (req.body._method == 'patch') {
+        // Update the attributes.
+        if (req.body.comment) {
+          image.comments.push({ content: req.body.comment, created_by: req.user._id});
+        }
+
+        // Save the changes.
+        image.save((err) => {
+          if (err) { return done(err); }
+          res.redirect('/images/' + req.params.id);
+        });
+      }
+    }
+  });
+});
+
 app.get('/users', (req, res) => {
   User.find({}, (err, users) => {
     if (err) console.log(err);
