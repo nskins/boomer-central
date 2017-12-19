@@ -13,4 +13,9 @@ block without-header-content
         form(class="col-md-5" method="post")
           input(type="text" class="form-control" name="comment" id="comment" placeholder="Write a comment..." required)
           input(type="submit" value="Submit" class="btn btn-primary btn-submit")
+          br
+          br
+          - for (var i = 0; i < image.comments.length; ++i) {
+            p(class="form-control") #{image.comments[i].content}
+          - }
           input(type="hidden" name="_method" value="patch")
