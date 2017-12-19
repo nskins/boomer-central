@@ -1,9 +1,15 @@
-extends ../layout/with-header
+extends ../layout/without-header
 
-block content
+block without-header-content
   div(class="container text-center")
     div(class="content")
-      p: strong Submitted by #[a(href='/users/' + user_param.username) #{user_param.username}]
-      img(class="img-thumbnail" src='/' + image.path)
-      br
-      p #{image.description}
+      div(class="row")
+        div(class="col-md-7")
+          img(class="img-thumbnail" src='/' + image.path)
+          br
+          h3: strong #{image.name}
+          p: strong Submitted by #[a(href='/users/' + user_param.username) #{user_param.username}]
+          p #{image.description}
+        form(class="col-md-5" method="post")
+          input(type="text" class="form-control" name="comment" id="comment" placeholder="Write a comment..." required)
+          input(type="submit" value="Submit" class="btn btn-primary btn-submit")
