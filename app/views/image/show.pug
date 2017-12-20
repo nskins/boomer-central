@@ -16,6 +16,6 @@ block without-header-content
           br
           br
           - for (var i = 0; i < image.comments.length; ++i) {
-            p(class="form-control") #{image.comments[i].content}
+            p(class="form-control") #[a(href='/users/' + image.comments[i].username) #{image.comments[i].username}]: #{image.comments[i].content}
           - }
           input(type="hidden" name="_method" value="patch")

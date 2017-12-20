@@ -122,7 +122,8 @@ app.post('/images/:id', (req, res) => {
       if (req.body._method == 'patch') {
         // Update the attributes.
         if (req.body.comment) {
-          image.comments.push({ content: req.body.comment, created_by: req.user._id});
+          image.comments.push({ content: req.body.comment,
+            created_by: req.user._id, username: req.user.username });
         }
 
         // Save the changes.
