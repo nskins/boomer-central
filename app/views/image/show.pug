@@ -6,9 +6,7 @@ block without-header-content
       div(class="row")
         div(class="col-md-7")
           img(class="img-thumbnail" src='/' + image.path)
-          br
-          h3: strong #{image.name}
-          p: strong Submitted by #[a(href='/users/' + user_param.username) #{user_param.username}]
+          h4 #[strong #{image.name}] by #[a(href='/users/' + user_param.username) #{user_param.username}]
           p #{image.description}
         form(class="col-md-5" method="post")
           input(type="text" class="form-control" name="comment" id="comment" placeholder="Write a comment..." required)
