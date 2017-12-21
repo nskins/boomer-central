@@ -15,6 +15,7 @@ block without-header-content
             a(href=EDIT_URL) Edit profile
           - }
         div(class="col-md-8")
+          - images.reverse()
           - if (images.length === 0) {
             p: em This user has not yet submitted any images.
           - } else {

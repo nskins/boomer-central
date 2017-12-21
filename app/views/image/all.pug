@@ -3,6 +3,7 @@ extends ../layout/with-header
 block content
   div(class="container text-center")
     div(class="content")
+      - images.reverse()
       - if (images.length === 0) {
         p: em No images have yet been submitted.
       - } else {
