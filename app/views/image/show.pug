@@ -13,7 +13,7 @@ block without-header-content
           input(type="submit" value="Submit" class="btn btn-primary btn-submit")
           br
           br
-          - for (var i = 0; i < image.comments.length; ++i) {
+          - for (var i = image.comments.length - 1; i >= 0; --i) {
             p(class="form-control") #[a(href='/users/' + image.comments[i].username) #{image.comments[i].username}]: #{image.comments[i].content}
           - }
           input(type="hidden" name="_method" value="patch")
