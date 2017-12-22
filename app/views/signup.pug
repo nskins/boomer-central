@@ -1,4 +1,4 @@
-extends layout
+extends layout/with-header
 
 block content
   form(class="container" action="/signup", method="post" onsubmit="return $('#password').val() == $('#confirmPassword').val();")

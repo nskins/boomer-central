@@ -1,14 +1,34 @@
-extends ../layout
+extends ../layout/without-header
 
-block content
+block without-header-content
   div(class="container text-center")
     div(class="content")
-      img(class="img-thumbnail avatar-lg" src='/' + user_param.avatar)
-      br
-      - const EDIT_URL = '/users/' + user_param.username + '/edit'
-      - if (user && (user.username == user_param.username)) {
-        a(href=EDIT_URL): img(class="icon" id="pencil_edit" src="/img/pencil.png")
-        a(href=EDIT_URL) Edit your profile
-      - }
-      p This is the profile page for #{user_param.username}.
-      p "#{user_param.favoriteTrick}" is #{user_param.username}'s favorite Boomer trick!
+      div(class="row")
+        div(class="col-md-4")
+          img(class="img-thumbnail avatar-lg" src='/' + user_param.avatar)
+          br
+          h3 #{user_param.username}
+          p Favorite trick: #{user_param.favoriteTrick}
+          - const EDIT_URL = '/users/' + user_param.username + '/edit'
+          - if (user && (user.username == user_param.username)) {
+            a(href=EDIT_URL): img(class="icon" id="pencil_edit" src="/img/pencil.png")
+            a(href=EDIT_URL) Edit profile
+          - }
+        div(class="col-md-8")
+          - images.reverse()
+          - if (images.length === 0) {
+            p: em This user has not yet submitted any images.
+          - } else {
+            - const IMAGES_PER_ROW = 6;
+            - for (var i = 0; i < Math.ceil(images.length/IMAGES_PER_ROW); ++i) {
+              div(class="row")
+                - for (var j = 0; j < IMAGES_PER_ROW; ++j) {
+                  div(class="col-md-2")
+                    - var image;
+                    - if(image = images[i*IMAGES_PER_ROW + j]) {
+                      a(href="/images/" + image._id.toString())
+                        img(class="img-thumbnail avatar-sm" src='/' + image.path)
+                    - }
+                - }
+            - }
+          - }

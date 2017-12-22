@@ -45,7 +45,6 @@ footer p {
 h1 {
   color: #4f0000;
   font-weight: bold;
-  margin-top: 1.5%;
   margin-bottom: 1.5%;
 }
 
@@ -67,6 +66,7 @@ img {
 nav {
   margin-left: 0%;
   margin-right: 0%;
+  margin-bottom: 1.5%;
 }
 
 nav a {

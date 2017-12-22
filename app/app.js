@@ -114,6 +114,28 @@ app.get('/images/:id', (req, res) => {
   });
 });
 
+app.post('/images/:id', (req, res) => {
+  Image.findById(req.params.id, (err, image) => {
+    if (err) console.log(err);
+    else if (!image) res.render('404', { title: 'Boomer Central', user: req.user, url: req.url });
+    else {
+      if (req.body._method == 'patch') {
+        // Update the attributes.
+        if (req.body.comment) {
+          image.comments.push({ content: req.body.comment,
+            created_by: req.user._id, username: req.user.username });
+        }
+
+        // Save the changes.
+        image.save((err) => {
+          if (err) { return done(err); }
+          res.redirect('/images/' + req.params.id);
+        });
+      }
+    }
+  });
+});
+
 app.get('/users', (req, res) => {
   User.find({}, (err, users) => {
     if (err) console.log(err);
@@ -125,9 +147,13 @@ app.get('/users/:username', (req, res) => {
   User.findOne({ 'username': req.params.username }, (err, user) => {
     if (err) console.log(err);
     else if (!user) res.render('404', { title: 'Boomer Central', user: req.user, url: req.url });
-    else res.render('user/show', {
-      title: user.username, user: req.user, user_param: user
-    });
+    else {
+      Image.find({ created_by: user.id }, (err, images) => {
+        res.render('user/show', {
+          title: user.username, user: req.user, user_param: user, images: images
+        });
+      });
+    }
   });
 });
 

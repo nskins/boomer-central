@@ -25,8 +25,7 @@ html
         ul(class="nav nav-pills float-right")
           li(class="nav-item"): a(class="nav-link signup-link" href="/signup") Signup
           li(class="nav-item"): a(class="nav-link login-link" href="/login") Login
-    h1(class="text-center") #{title}
-    block content
+    block without-header-content
     script(id="jquery-js" src="/bower_components/jquery/dist/jquery.js")
     script(id="popper-js" src="/bower_components/popper.js/dist/umd/popper.js")
     script(id="bootstrap-js" src="/bower_components/bootstrap/dist/js/bootstrap.js")
